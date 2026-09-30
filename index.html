@@ -3,13 +3,95 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GBDA 414 — MobileNet Image Classifier</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
-    <link rel="stylesheet" href="style.css" />
+
+    <!--
+      This file is the "container" for the p5.js sketch.
+
+      When the browser opens index.html, it reads this file from top to bottom.
+      The important jobs of this page are:
+      1. tell the browser what kind of document this is,
+      2. load any libraries our project depends on,
+      3. load our own sketch.js file,
+      4. provide a place where the p5 canvas can appear.
+
+      In this project, the actual interactive behaviour lives in sketch.js.
+      index.html mainly loads the right pieces in the right order.
+    -->
+
+    <title>Week 4 ml5.js Example</title>
+
+    <!--
+      A tiny bit of CSS is included here just to remove the browser's default margin.
+      Browsers usually add white space around the edges of a page.
+      For p5 sketches, that margin can make the canvas look misaligned,
+      so we remove it.
+    -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+
+    <!--
+      p5.js is the creative coding library we use for drawing,
+      animation, interaction, images, and video.
+
+      It gives us functions like:
+      - createCanvas()
+      - background()
+      - image()
+      - text()
+      - fill()
+      - setup()
+      - draw()
+
+      Important: p5 must load BEFORE sketch.js,
+      because sketch.js uses p5 functions.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+
+    <!--
+      ml5.js is a beginner-friendly machine learning library built on top of TensorFlow.js.
+
+      In this example, ml5 gives us access to MobileNet, which is a pretrained
+      image classification model.
+
+      "Pretrained" means the model was already trained by someone else on a very
+      large dataset before we ever opened this project. We are not training the
+      model in this sketch. We are only USING it to make predictions.
+
+      Conceptually:
+      - p5 handles the visual/interactive side of the sketch.
+      - ml5 handles the machine-learning side.
+    -->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
   </head>
+
   <body>
-    <main></main>
+    <!--
+      We do not need to manually add a <canvas> element here.
+      p5 creates the canvas for us when createCanvas() runs in sketch.js.
+
+      We also do not need to add visible HTML text unless we want to.
+      In this example, all of the main visual output is drawn directly onto the canvas.
+    -->
+
+    <!--
+      Finally, we load our own JavaScript file.
+
+      This must come AFTER p5.js and ml5.js, because sketch.js depends on both.
+      If the order were reversed, the browser would try to run our sketch before
+      those libraries exist, and we would get errors.
+    -->
     <script src="sketch.js"></script>
   </body>
 </html>

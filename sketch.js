@@ -18,6 +18,7 @@ function preload() {
   // Create a MobileNet classifier.
   // MobileNet is a pretrained image-classification model.
 
+  // THIS IS THE LINE YOU WANT TO CHANGE
   img = loadImage("images/image-1.jpg");
   // Load the image file that we want to classify.
   // The path means there should be an image inside an images folder.
